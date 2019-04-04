@@ -7,12 +7,19 @@
 
 require('./bootstrap');
 // require('./chart');
-require('./dashboard');
-require('./maps');
-require('./misc');
-require('./off-canvas');
+// require('./dashboard');
+// require('./maps');
+// require('./misc');
+// require('./off-canvas');
 // require('./adminlte.min');
 // require('./bootstrap3-wysihtml5.all.min');
+require('./popper.min');
+// require('./grasp_mobile_progress_circle-1.0.0.min');
+// require('./jquery.cookie');
+// require('./Chart.min');
+// require('./jquery.mCustomScrollbar.concat.min');
+// require('./front');
+// require('./charts-home');
 window.Vue = require('vue');
 
 /**
