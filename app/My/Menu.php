@@ -10,16 +10,32 @@ class Menu{
 
 
     static public function gen_menu(){
-
+        /**
+         * 模块过滤 sql
+        SELECT
+        menus.id,
+        menus.parentid,
+        menus.title,
+        menus.action,
+        m2.title AS father_title
+        FROM
+        menus
+        LEFT JOIN menus AS m2 ON menus.parentid = m2.id
+        WHERE
+        menus.id in (1,2)
+        OR
+        menus.parentid in (1,2)
+         *
+         */
 
         $sql = <<<EOD
 SELECT
-nw_menu.id,
-nw_menu.parentid,
-nw_menu.title,
-nw_menu.action
+menus.id,
+menus.parentid,
+menus.title,
+menus.action
 FROM
-nw_menu
+menus
 
 EOD;
         $tree_nodes = DB::connection()
