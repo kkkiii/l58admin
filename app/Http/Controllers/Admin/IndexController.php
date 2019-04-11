@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Hash ;
 use App\My\Helpers ;
 class IndexController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',[
+            'only'=>['home']
+        ]);
+
+    }
     public function home(){
 
        return view('admin.home') ;
