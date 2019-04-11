@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers\Admin;
-use App\Model\YQUser;
+use App\Model\Admin;
 use App\My\Helpers;
 use App\My\MyAuth;
 use App\User;
@@ -30,9 +30,9 @@ class LoginController extends Controller
             'uname'=>'required',
             'password'=>'required|min:5',
         ]) ;
-        $user = YQUser::where('user_login',  $data['uname'] )->first();
+        $user = Admin::where('uname',  $data['uname'] )->first();
 
-        if(MyAuth::check (  $data['password'],$user->user_pass))
+        if(MyAuth::check (  $data['password'],$user->password))
         {
             Auth::login($user) ;
             session()->flash(
