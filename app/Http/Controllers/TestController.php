@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB ;
 use Illuminate\Support\Facades\Redis ;
 use App\Biz\PCACodeBiz ;
 use App\My\Category ;
+use App\My\Menu ;
 class TestController extends Controller
 {
     public function t1(Request $request)
@@ -101,16 +102,7 @@ print_r("==================================" ) ;
 
 //        echo url('user/profile', [1]);
 
-        $sql = <<<EOD
-SELECT
-nw_menu.id,
-nw_menu.parentid,
-nw_menu.title,
-nw_menu.action
-FROM
-nw_menu
 
-EOD;
 
 //        var_dump( );
 //      $rtn =  Redis::HMSET('hmset',(json_decode($json,true))) ;
@@ -123,24 +115,20 @@ EOD;
 //
 //        var_dump($rtn) ;
 
-
-        $tree_nodes = DB::connection()
-            ->select($sql);
+        Menu::gen_menu() ;
 
 
-
-        $arr = Helpers::objectToArray($tree_nodes) ;
-
-
-        $resut =  Category::unlimitedForlayer($arr) ;
-
-        var_dump(json_encode($resut)) ;
-        die() ;
 
 
     }
 
+    public function t4(Request $request){
+       return view('admin.t4') ;
+    }
 
+    public function t5(Request $request){
+        return view('admin.t5') ;
+    }
 
 
 }
