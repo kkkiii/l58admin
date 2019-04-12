@@ -1,7 +1,7 @@
 <?php
 namespace App\My;
 use Illuminate\Support\Facades\DB ;
-
+use Illuminate\Support\Facades\URL ;
 class Menu{
 
 
@@ -54,13 +54,12 @@ EOD;
 
             if (!empty($item['child'] ))
             {
-                $ch_str = static::gen_sub($item['child'])    ;
-
+                $res = static::gen_sub($item['child'])   ;
 
                 $html2 = <<<EOD
-            <div class="collapse" id="item-$idstr">
+            <div class="collapse $res[1]" id="item-$idstr">
                 <ul class="nav flex-column ml-3">
-                    $ch_str
+                    $res[0]
                 </ul>
             </div>
 EOD;
@@ -87,14 +86,31 @@ EOD;
 
 
 
-    public static function gen_sub($children): string
+    public static function gen_sub($children)
     {
+        $show_str ='';
 
         $des = '' ;
 
         foreach ($children as $child)
         {
             $title = $child['title']  ;$href = $child['action']  ;
+
+            $url = URL::current() ;
+            $left =   MyStr::str_retrive_left($url , '/') ;
+
+            $action_left =   MyStr::str_retrive_left($child['action']  , '/') ;
+
+
+//            var_dump($left .'|' .$action_left) ;
+
+            if (strcmp($left,$action_left)== 0)
+            {
+                $show_str = 'show' ;
+//                dd($show_str) ;
+
+            }
+
 
             $html = <<<EOD
                     <li class="nav-item">
@@ -107,7 +123,7 @@ EOD;
 
         }
 
-        return $des ;
+        return [$des , $show_str] ;
 
 
     }
