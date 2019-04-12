@@ -1,0 +1,11 @@
+INSERT INTO `admin_role` VALUES (1, '超级管理员', 0, 1, '拥有网站最高管理员权限！', 1329633709, 1329633709, 0);
+INSERT INTO `admin_role` VALUES (2, '网评员', NULL, 1, '网评员', 1484645448, 0, 0);
+INSERT INTO `admin_role` VALUES (4, '区域管理员', NULL, 1, '区域管理员', 1491386067, 0, 0);
+INSERT INTO `admin_role` VALUES (6, '后台发布人员', NULL, 1, '负责发布企业端、政府端部分栏目中的数据', 1491877777, 1547018175, 0);
+INSERT INTO `admin_role` VALUES (7, '舆情培训管理', NULL, 1, '', 1495592088, 0, 0);
+INSERT INTO `admin_role` VALUES (9, '舆情发布组', NULL, 1, '', 1505443163, 0, 0);
+INSERT INTO `admin_role` VALUES (10, '辖区处理人员', NULL, 1, '', 1513676749, 1513677154, 0);
+INSERT INTO `admin_role` VALUES (11, '在线留言客服', NULL, 1, '回复12315消费着端在线留言', 1514190547, 0, 0);
+INSERT INTO `admin_role` VALUES (13, '中青联盟', NULL, 1, '', 1552785025, 0, 0);
+INSERT INTO `admin_role` VALUES (14, '管委会', NULL, 1, '管委会后台管理员', 1552787782, 1552787815, 0);
+INSERT INTO `admin_role` VALUES (15, 'zj', NULL, 1, '测试人员', 1552811937, 1552813809, 0);
