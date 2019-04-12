@@ -18,6 +18,6 @@
 $router->get('test/t1','TestController@t1');
 $router->get('test/t2','TestController@t2');
 $router->get('test/t3','TestController@t3');
-
-
+$router->get('test/t4','TestController@t4');
+$router->get('test/t5','TestController@t5');
 require __DIR__.'./admin.php';
